@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <script src="js/slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script>
+        window.onload = function () {
+
+            var SAP = {
+                "SAP Modules": [{
+                    click: visitorsChartDrilldownHandler,
+                    cursor: "pointer",
+                    explodeOnClick: false,
+                    name: "SAP Modules",
+                    radius: "100%",
+                    showInLegend: false,
+                    startAngle: 90,
+                    type: "pie",
+                    dataPoints: [
+                        { y: 16.67, name: "FiCO" },
+                        { y: 16.67, name: "HRM" },
+                        { y: 16.67, name: "Sales and Distribution" },
+                        { y: 16.67, name: "Basis" },
+                        { y: 16.67, name: "Security" },
+                        { y: 16.67, name: "Performance" },
+                    ]
+                }],
+                "FiCO": [{
+                    color: "#E7823A",
+
+                    type: "pie",
+                    dataPoints: [
+                        { y: 16.67, name: "General Ledger" },
+                        { y: 16.67, name: "Account Receivable" },
+                        { y: 16.67, name: "Amount Payable" },
+                        { y: 16.67, name: "Legal Consolidation" },
+                        { y: 16.67, name: "Special Purpose Ledger" },
+                        { y: 16.67, name: "travel Management" },
+                    ]
+                }],
+                "HRM": [{
+                    color: "#546BC1",
+
+                    type: "pie",
+                    dataPoints: [
+                        { y: 16.67, name: "General Ledger" },
+                        { y: 16.67, name: "Account Receivable" },
+                        { y: 16.67, name: "Amount Payable" },
+                        { y: 16.67, name: "Legal Consolidation" },
+                        { y: 16.67, name: "Special Purpose Ledger" },
+                        { y: 16.67, name: "travel Management" },
+                    ]
+
+                }]
+
+
+
+            };//SAP
+            var modules = {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "SAP Modules"
+                },
+                subtitles: [{
+                    text: "Click on Any Segment to Drilldown",
+                    backgroundColor: "#2eacd1",
+                    fontSize: 16,
+                    fontColor: "white",
+                    padding: 5
+                }],
+                legend: {
+                    fontFamily: "calibri",
+                    fontSize: 14,
+                    // itemTextFormatter: function (e) {
+                    //     return e.dataPoint.name + ": " + Math.round(e.dataPoint.y / totalVisitors * 100) + "%";  
+                    // }
+                },
+                // data: []
+            };//modules
+            var chart = new CanvasJS.Chart("chartContainer", modules);
+            chart.options.data = SAP["SAP Modules"];//function
+            chart.render();
+
+
+            function visitorsChartDrilldownHandler(e) {
+                // chart = new CanvasJS.Chart("chartContainer", visitorsDrilldownedChartOptions);
+                chart.options.data = SAP[e.dataPoint.name];
+                chart.options.title = { text: e.dataPoint.name }
+                chart.render();
+                $("#backButton").toggleClass("invisible");
+            }
+            $("#backButton").click(function () {
+                $(this).toggleClass("invisible")
+                chart = new CanvasJS.Chart("chartContainer", modules);
+                chart.options.data = SAP["SAP Modules"];
+                chart.render();
+            });
+
+        }
+
+
+
+    </script>
+    <style>
+        #backButton {
+            border-radius: 4px;
+            padding: 8px;
+            border: none;
+            font-size: 16px;
+            background-color: #2eacd1;
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .invisible {
+            display: none;
+        }
+    </style>
+</head>
+</head>
+
+<body>
+
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <div class="container">
+        <button class="btn invisible" id="backButton" onclick=''click()> Back</button>
+    </div>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>

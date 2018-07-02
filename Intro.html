@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <script src="js/slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="deviceready.js"></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <title>Sap Modules</title>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background: url(img/blur.jpg ) fixed;
+
+        }
+
+
+
+        .header {
+            position: fixed;
+            width: 100%;
+            padding: 10px 16px;
+            background:	#000000;
+            color: #f1f1f1;
+            z-index: 9000;
+
+        }
+
+
+
+
+
+
+        .rowGutter {
+            margin-bottom: 4%;
+        }
+        .avatar {
+            vertical-align: middle;
+           
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .next {
+            background-color: #000000;
+            color: white;
+
+
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                position: fixed;
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+     <script>
+            function element()
+            {
+                
+
+                
+                
+                document.getElementById('user').innerHTML =sessionStorage.getItem('name'); 
+                 
+    
+            }
+        //    $(document).ready(function()
+        //    {
+        //        console.log("db call");
+        //     var myDB = window.sqlitePlugin.openDatabase({ name: "mySQLite.db", location: 'default' });
+        //     console.log(myDB);
+        // myDB.transaction(function (transaction) {
+        //     transaction.executeSql('CREATE TABLE IF NOT EXISTS codesundar (id integer primary key, title text, desc text)', [],
+        //         function (tx, result) {
+        //             alert("Table created successfully");
+        //         },
+        //         function (error) {
+        //             alert("Error occurred while creating the table.");
+        //         });
+        // });
+        //    });
+        </script>
+</head>
+<header >
+    <div class="header" id="my header" style="margin-bottom: 50px">
+        <span style="font-size:30px;cursor:pointer; margin-left:5%;" onclick="openNav()">&#9776;</span>
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "70%";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <img src="img/avatar.png" alt="Avatar" class="avatar" style="margin-left:30%; ">
+            
+            <h1><div id="user"></div></h1>
+        <hr>
+            
+
+            <a href="Intro.html">HOME</a>
+            <a href="modules.html">MODULES</a>
+            <a href="#">PROFILE</a>
+            <a href="#">T Codes</a>
+            <a href="main.html">LOG OUT</a>
+        </div>
+    </div>
+</header>
+
+<body onload="element()">
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="jumbotron">
+                    <h2>
+                        <center>SAP Overview</center>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <center>
+                    <img src="img\images.png">
+                </center>
+
+
+
+            </div>
+        </div>
+        <div class="rowGutter"></div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Introduction</div>
+                    <div class="panel-body">
+                        <p>
+                            System Advanced,Products in Data Processing is an
+                            <b>ERP(Enterprise Resource and Planning)</b> tools. It is a German based multinational company which
+                            provide tools required by each and every company all around the globe.On the
+                            <b>Forbes 2016</b>
+                            list of "The World's Biggest Public Companies," SAP was ranked the
+                            <b>third-largest</b> software and programming company, behind
+                            <ol type="1">
+                                <li>
+                                    <b>Microsoft</b>
+                                </li>
+                                <li>
+                                    <b>Oracle</b>
+                                </li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <a href="need.html" class="next btn btn-primary pull-right">next &raquo;</a>
+
+
+            </div>
+        </div>
+    </div>
+    </center>
+</body>
+<div class="rowGutter"></div>
+
+
+<footer>
+    <div class="footer-copyright text-center py-10">© 2018 Copyright: NLC India Limited.
+
+    </div>
+</footer>
+
+
+
+
+
+</html>

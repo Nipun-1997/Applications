@@ -1,0 +1,52 @@
+ //  document.addEventListener("deviceready", onDeviceReady, false);
+
+// device APIs are available
+//
+// function onDeviceReady() {
+//     var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+    
+    
+//     db.transaction(populateDB, errorCB, successCB);
+// }
+
+// Populate the database
+//
+// function populateDB(tx) {
+//     tx.executeSql('DROP TABLE IF EXISTS DEMO');
+//     tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+//     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+//     tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+//     tx.executeSql('SELECT * FROM DEMO', [], function (tx, results) {
+//              var len = results.rows.length,i;
+//              for (var i = 0; i < len; ++i) {
+//                 var obj = results.rows.item(i);
+//                 console.log(obj);
+//               }
+//           });
+    
+
+// }
+ var x = document.getElementById("user").value;
+            var y = document.getElementById("password").value;
+
+            if (x == localStorage.getItem('email') && y == localStorage.getItem('password'))
+
+// Transaction error callback
+//
+// function errorCB(tx, err) {
+//     alert("Error processing SQL: "+err);
+// }
+
+// // Transaction success callback
+// //
+// function successCB() {
+//     alert("success!");
+// }
+        
+//         localStorage.setItem('email', 'George');
+//         localStorage.setItem('password', '1234');
+//         localStorage.setItem('phone', '123456789');
+//         localStorage.setItem('country', 'India');
+//         document.addEventListener('deviceready', function () {
+            
+// });
